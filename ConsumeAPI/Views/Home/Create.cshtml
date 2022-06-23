@@ -1,0 +1,47 @@
+﻿@model ConsumeAPI.ResponseModels.BookResponseModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ADD NEW BOOK</title>
+</head>
+<body>
+    @{ 
+        if (TempData["errorMessage"] != null)
+            {
+                <p style="color:red">
+                    @TempData["errorMessage"]?.ToString()
+                </p>
+            }
+    }
+    <form asp-action="Create" asp-controller="Home" method="post">
+
+        <label>Name</label>
+        <input type="text" asp-for="@Model.Name" /> 
+        <br /><hr />
+
+        <label>Author</label>
+        <input type="text" asp-for="@Model.Author" /> 
+        <br /><hr />
+
+         <label>Type</label>
+        <input type="text" asp-for="@Model.Type" /> 
+        <br /><hr />
+
+         <label>pageSize</label>
+        <input asp-for="@Model.pageSize" /> 
+        <br /><hr />
+
+         <label>Price</label>
+        <input asp-for="@Model.Price" /> 
+        <br /><hr />
+
+        <div>
+          <a asp-action="Index" asp-controller="Home">Back</a>
+            <button type="submit">Save</button>
+        </div>
+
+    </form>
+
+
+</body>
+</html>

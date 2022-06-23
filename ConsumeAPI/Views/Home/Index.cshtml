@@ -1,0 +1,37 @@
+﻿@model List<ConsumeAPI.ResponseModels.BookResponseModel>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Book List</title>
+</head>
+<body>
+           <a asp-action="Create" asp-controller="Home">Add New Item</a>
+
+
+   <table>
+        <th>
+            <td>Name</td>
+            <td>Author</td>
+            <td>Type</td>
+            <td>Page Size</td>
+            <td>Price</td>
+        </th>
+
+        @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Name</td>
+            <td>@book.Author</td>
+            <td>@book.Type</td>
+            <td>@book.pageSize</td>
+            <td>@book.Price</td>
+             <td>
+                    <a asp-action="Update" asp-controller="Home" asp-route-id="@book.Id">Update</a>
+                    <a asp-action="Remove" asp-controller="Home" asp-route-id="@book.Id">Remove</a>
+                </td>
+        </tr>
+    }
+    </table>
+
+</body>
+</html>
